@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DatingApp.API.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
@@ -20,7 +20,6 @@ namespace DatingApp.API.Controllers
         }
 
         // GET api/GetValues
-        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetValues()
         {

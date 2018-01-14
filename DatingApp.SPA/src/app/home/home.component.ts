@@ -1,19 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 
-
 @Component({
-  selector: 'app-value',
-  templateUrl: './value.component.html',
-  styleUrls: ['./value.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class ValueComponent implements OnInit {
+export class HomeComponent implements OnInit {
+  registerMode = false;
   values: any;
 
-  constructor(private _http: Http) { }
+  constructor(private _http: Http) {}
 
   ngOnInit() {
     this.getValues();
+  }
+
+  registerToggle() {
+    this.registerMode = !this.registerMode;
   }
 
   getValues() {
@@ -21,5 +25,4 @@ export class ValueComponent implements OnInit {
       this.values = res.json();
     });
   }
-
 }
